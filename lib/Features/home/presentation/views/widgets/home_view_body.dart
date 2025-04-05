@@ -1,6 +1,6 @@
 import 'package:bookly/Features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/custom_appbar.dart';
-import 'package:bookly/Features/home/presentation/views/widgets/cutsom_list_view.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:bookly/core/Utils/styles.dart';
 import 'package:flutter/material.dart';
 
