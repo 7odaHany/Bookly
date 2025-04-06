@@ -8,20 +8,32 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomSearchTextField(),
-           SizedBox(height: 20),
-           Text(
+          const SizedBox(height: 12),
+          IconButton(
+          
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 20),
+          const CustomSearchTextField(),
+          const SizedBox(height: 20),
+          const Text(
             'Search Result',
             style: Styles.textStyle18,
-           ),
-          SizedBox(height: 20),
-          Expanded(child: SearchResuldListView()),
-          SizedBox(height: 8),
+          ),
+          const SizedBox(height: 20),
+          const Expanded(child: SearchResuldListView()),
+          const SizedBox(height: 8),
         ],
       ),
     );
@@ -44,4 +56,3 @@ class SearchResuldListView extends StatelessWidget {
         });
   }
 }
-
