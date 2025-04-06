@@ -15,7 +15,6 @@ class SearchViewBody extends StatelessWidget {
         children: [
           const SizedBox(height: 12),
           IconButton(
-          
             onPressed: () {
               Navigator.pop(context);
             },

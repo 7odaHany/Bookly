@@ -27,11 +27,11 @@ class CustomSearchTextField extends StatelessWidget {
 
   OutlineInputBorder BuildOutlineInputBorder() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(
-          color: Colors.white,
-          width: 1.5,
-        ),
-      );
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Colors.white,
+        width: 1.5,
+      ),
+    );
   }
 }
