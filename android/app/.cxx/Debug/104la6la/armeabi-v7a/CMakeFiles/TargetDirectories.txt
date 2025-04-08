@@ -1,0 +1,2 @@
+C:/Users/Ideapad/Desktop/FlutterProjects/bookly/android/app/.cxx/Debug/104la6la/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Ideapad/Desktop/FlutterProjects/bookly/android/app/.cxx/Debug/104la6la/armeabi-v7a/CMakeFiles/rebuild_cache.dir
