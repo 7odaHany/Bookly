@@ -4,13 +4,14 @@ import 'package:bookly/Features/home/presentation/manger/newest_books_cubit/newe
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/Utils/app_router.dart';
 import 'package:bookly/core/Utils/service_locaator.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   setupServiceLocator();
-  runApp(const Bookly());
+  runApp(DevicePreview(enabled : true , builder: (context) => const Bookly()));
 }
 
 class Bookly extends StatelessWidget {
@@ -23,7 +24,7 @@ class Bookly extends StatelessWidget {
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchFeaturedBooks(),
           child: Container(),
         ),
         BlocProvider(
