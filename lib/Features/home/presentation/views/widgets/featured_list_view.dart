@@ -23,7 +23,7 @@ class FeatureBooksListView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: CustomBookItem(
                     imageUrl: state.books[index].volumeInfo.imageLinks
-                        .thumbnail, // Replace with actual image URL
+                        ?.thumbnail ?? 'https://i.pinimg.com/474x/11/93/7b/11937bb1e918c2d50427c89760fa3f43.jpg', // Replace with actual image URL
                   ),
                 );
               },
