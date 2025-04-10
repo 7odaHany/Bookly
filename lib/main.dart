@@ -11,7 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   setupServiceLocator();
-  runApp(DevicePreview(enabled : false , builder: (context) => const Bookly()));
+  runApp(DevicePreview(enabled : true , builder: (context) => const Bookly()));
 }
 
 class Bookly extends StatelessWidget {
