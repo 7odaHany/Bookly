@@ -1,11 +1,11 @@
-class HomeEntity {
+class BookEntity {
   final String image;
   final String title;
   final String authorName;
   final num rating;
   final num price;
 
-  HomeEntity(
+  BookEntity(
       {required this.image,
       required this.title,
       required this.authorName,
