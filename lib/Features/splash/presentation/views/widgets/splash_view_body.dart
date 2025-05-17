@@ -1,64 +1,50 @@
-import 'package:bookly/Features/splash/presentation/views/widgets/sliding_text.dart';
-import 'package:bookly/core/Utils/app_router.dart';
-import 'package:bookly/core/Utils/assets.dart';
+import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/core/utils/assets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashViewBody extends StatefulWidget {
-  const SplashViewBody({super.key});
+import 'sliding_text.dart';
+
+class SplashViewbody extends StatefulWidget {
+  const SplashViewbody({super.key});
 
   @override
-  State<SplashViewBody> createState() => _SplashViewBodyState();
+  State<SplashViewbody> createState() => _SplashViewbodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody>
+class _SplashViewbodyState extends State<SplashViewbody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
+
   @override
   void initState() {
     super.initState();
     initSlidingAnimation();
+
     navigateToHome();
   }
 
   @override
   void dispose() {
     super.dispose();
+
     animationController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(42),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SvgPicture.asset(
-            height: 250,
-            AssetsData.logo,
-          ),
-          SlidingText(slidingAnimation: slidingAnimation),
-        ],
-      ),
-    );
-  }
-
-  void navigateToHome() {
-    Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        // Get.to(
-        //   () => const HomeView(),
-        //   transition: Transition.fade,
-        //   duration: kTransetionDuration,
-        // );
-
-        GoRouter.of(context).push(AppRouter.kHomeView);
-      },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Image.asset(AssetsData.logo),
+        const SizedBox(
+          height: 4,
+        ),
+        SlidingText(slidingAnimation: slidingAnimation),
+      ],
     );
   }
 
@@ -67,16 +53,26 @@ class _SplashViewBodyState extends State<SplashViewBody>
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 10),
-      end: Offset.zero,
-    ).animate(
-      // animationController,
-      CurvedAnimation(
-        parent: animationController,
-        curve: Curves.easeInOut,
-      ),
-    );
+
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
+            .animate(animationController);
+
     animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        // Get.to(() => const HomeView(),
+        //     // calculations
+        //     transition: Transition.fade,
+        //     duration: kTranstionDuration);
+
+        // ignore: use_build_context_synchronously
+        GoRouter.of(context).push(AppRouter.kHomeView);
+      },
+    );
   }
 }
